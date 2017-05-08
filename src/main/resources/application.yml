@@ -1,0 +1,25 @@
+# 数据源配置
+spring:
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3303/test1?useUnicode=true&characterEncoding=utf8
+        username: root
+        password: 123456
+    ## Redis 配置
+    redis:
+        database: 0
+        host: 127.0.0.1
+        port: 6379
+        password:
+        timeout: 0
+
+        pool:
+            max-active: 8
+            max-wait: -1
+            max-idle: 8
+            min-idle: 0
+
+# Mybatis 配置
+mybatis:
+    typeAliasesPackage: com.ziyan.domain
+    mapperLocations: classpath:com.ziyan.dao/*.xml
