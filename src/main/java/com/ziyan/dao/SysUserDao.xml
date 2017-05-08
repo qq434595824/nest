@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ziyan.dao.SysUserDao">
+
+	<select id="queryObject" resultType="com.ziyan.entity.SysUserEntity">
+		select * from sys_user where id = #{value}
+	</select>
+
+	<select id="queryList" resultType="com.ziyan.entity.SysUserEntity">
+		select * from sys_user 
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(*) from sys_user 
+	</select>
+	 
+	<insert id="save" parameterType="com.ziyan.entity.SysUserEntity" useGeneratedKeys="true" keyProperty="id">
+		insert into sys_user
+		(
+			`username`, 
+			`password`, 
+			`gmt_create`
+		)
+		values
+		(
+			#{username}, 
+			#{password}, 
+			#{gmtCreate}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.ziyan.entity.SysUserEntity">
+		update sys_user 
+		<set>
+			<if test="username != null">`username` = #{username}, </if>
+			<if test="password != null">`password` = #{password}, </if>
+			<if test="gmtCreate != null">`gmt_create` = #{gmtCreate}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="delete">
+		delete from sys_user where id = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from sys_user where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

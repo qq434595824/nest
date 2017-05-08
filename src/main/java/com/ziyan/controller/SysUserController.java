@@ -1,4 +1,4 @@
-package ${package}.controller;
+package com.ziyan.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -17,27 +17,27 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import ${package}.entity.${className}Entity;
-import ${package}.service.${className}Service;
-import ${package}.utils.PageUtils;
+import com.ziyan.entity.SysUserEntity;
+import com.ziyan.service.SysUserService;
+import com.ziyan.utils.PageUtils;
 
 
 /**
- * ${comments}
  * 
- * @author ${author}
- * @email ${email}
- * @date ${datetime}
+ * 
+ * @author ziyan
+ * @email 434595824@qq.com
+ * @date 2017-05-08 18:59:25
  */
 @Controller
-@RequestMapping("${pathName}")
-public class ${className}Controller {
+@RequestMapping("sysuser")
+public class SysUserController {
 	@Autowired
-	private ${className}Service ${classname}Service;
+	private SysUserService sysUserService;
 	
-	@RequestMapping("/${pathName}.html")
+	@RequestMapping("/sysuser.html")
 	public String list(){
-		return "${pathName}/${pathName}.html";
+		return "sysuser/sysuser.html";
 	}
 	
 	/**
@@ -45,7 +45,7 @@ public class ${className}Controller {
 	 */
 	@ResponseBody
 	@GetMapping("/list")
-	@RequiresPermissions("${pathName}:list")
+	@RequiresPermissions("sysuser:list")
 	@ApiOperation(value="获取列表信息", notes="根据提交的页数跟每页的数据限制数")
 	public ResponseEntity<PageUtils> list(Integer page, Integer limit){
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -53,10 +53,10 @@ public class ${className}Controller {
 		map.put("limit", limit);
 		
 		//查询列表数据
-		List<${className}Entity> ${classname}List = ${classname}Service.queryList(map);
-		int total = ${classname}Service.queryTotal(map);
+		List<SysUserEntity> sysUserList = sysUserService.queryList(map);
+		int total = sysUserService.queryTotal(map);
 		
-		PageUtils pageUtil = new PageUtils(${classname}List, total, limit, page);
+		PageUtils pageUtil = new PageUtils(sysUserList, total, limit, page);
 		
 		return ResponseEntity.ok(pageUtil);
 	}
@@ -66,13 +66,13 @@ public class ${className}Controller {
 	 * 信息
 	 */
 	@ResponseBody
-	@GetMapping("/info/{${pk.attrname}}")
-	@RequiresPermissions("${pathName}:info")
+	@GetMapping("/info/{id}")
+	@RequiresPermissions("sysuser:info")
 	@ApiOperation(value="获取单个记录信息")
-	public ResponseEntity<${className}Entity> info(@PathVariable("${pk.attrname}") ${pk.attrType} ${pk.attrname}){
-		${className}Entity ${classname} = ${classname}Service.queryObject(${pk.attrname});
+	public ResponseEntity<SysUserEntity> info(@PathVariable("id") Integer id){
+		SysUserEntity sysUser = sysUserService.queryObject(id);
 
-        return ResponseEntity.ok(${classname});
+        return ResponseEntity.ok(sysUser);
 	}
 	
 	/**
@@ -80,10 +80,10 @@ public class ${className}Controller {
 	 */
 	@ResponseBody
 	@PostMapping("/save")
-	@RequiresPermissions("${pathName}:save")
+	@RequiresPermissions("sysuser:save")
 	@ApiOperation(value="保存单个记录信息")
-	public ResponseEntity<Void> save(@RequestBody ${className}Entity ${classname}){
-		${classname}Service.save(${classname});
+	public ResponseEntity<Void> save(@RequestBody SysUserEntity sysUser){
+		sysUserService.save(sysUser);
 
         return ResponseEntity.ok(null);
 	}
@@ -93,10 +93,10 @@ public class ${className}Controller {
 	 */
 	@ResponseBody
 	@PostMapping("/update")
-	@RequiresPermissions("${pathName}:update")
+	@RequiresPermissions("sysuser:update")
 	@ApiOperation(value="更新单个记录信息")
-	public ResponseEntity<Void> update(@RequestBody ${className}Entity ${classname}){
-		${classname}Service.update(${classname});
+	public ResponseEntity<Void> update(@RequestBody SysUserEntity sysUser){
+		sysUserService.update(sysUser);
 
         return ResponseEntity.ok(null);
 	}
@@ -106,10 +106,10 @@ public class ${className}Controller {
 	 */
 	@ResponseBody
 	@DeleteMapping("/delete")
-	@RequiresPermissions("${pathName}:delete")
+	@RequiresPermissions("sysuser:delete")
 	@ApiOperation(value="删除单个记录信息")
-	public ResponseEntity<Void> delete(@RequestBody ${pk.attrType}[] ${pk.attrname}s){
-		${classname}Service.deleteBatch(${pk.attrname}s);
+	public ResponseEntity<Void> delete(@RequestBody Integer[] ids){
+		sysUserService.deleteBatch(ids);
 
         return ResponseEntity.ok(null);
 	}
