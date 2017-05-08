@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.zip.ZipOutputStream;
 
-@Service("sysGeneratorService")
+@Service("codeGeneratorService")
 public class CodeGeneratorServiceImpl implements CodeGeneratorService {
 	@Autowired
 	private CodeGeneratorDao codeGeneratorDao;
