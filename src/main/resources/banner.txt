@@ -1,0 +1,2 @@
+${AnsiColor.RED}                               
+  ${AnsiColor.GREEN}       子炎${AnsiColor.RED}的小狗窝
