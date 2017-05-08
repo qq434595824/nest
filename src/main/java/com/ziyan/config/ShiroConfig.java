@@ -61,7 +61,8 @@ public class ShiroConfig {
     public SecurityManager securityManager() {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         // 设置realm.
-        securityManager.setRealm(myShiroRealm());
+
+//        securityManager.setRealm(myShiroRealm());
         return securityManager;
     }
 }

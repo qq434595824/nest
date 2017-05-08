@@ -71,7 +71,7 @@ public class CodeGeneratorController {
         byte[] data = codeGeneratorService.generatorCode(tableNames);
 
         response.reset();
-        response.setHeader("Content-Disposition", "attachment; filename=\"openBoot.zip\"");
+        response.setHeader("Content-Disposition", "attachment; filename=\"generatorCode.zip\"");
         response.addHeader("Content-Length", "" + data.length);
         response.setContentType("application/octet-stream; charset=UTF-8");
 
