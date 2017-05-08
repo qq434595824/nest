@@ -5,6 +5,10 @@ spring:
         url: jdbc:mysql://localhost:3303/test1?useUnicode=true&characterEncoding=utf8
         username: root
         password: 123456
+        initialSize: 5
+        minIdle: 5
+        maxActive: 10
+        maxWait: 60000
     ## Redis 配置
     redis:
         database: 0
