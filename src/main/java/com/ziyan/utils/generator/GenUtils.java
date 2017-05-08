@@ -30,14 +30,14 @@ public class GenUtils {
 	
 	public static List<String> getTemplates(){
 		List<String> templates = new ArrayList<String>();
-		templates.add("template/Entity.java.vm");
-		templates.add("template/Dao.java.vm");
-		templates.add("template/Dao.xml.vm");
-		templates.add("template/Service.java.vm");
-		templates.add("template/ServiceImpl.java.vm");
-		templates.add("template/Controller.java.vm");
-		templates.add("template/list.html.vm");
-		templates.add("template/list.js.vm");
+		templates.add("gen/templates/Entity.java.vm");
+		templates.add("gen/templates/Dao.java.vm");
+		templates.add("gen/templates/Dao.xml.vm");
+		templates.add("gen/templates/Service.java.vm");
+		templates.add("gen/templates/ServiceImpl.java.vm");
+		templates.add("gen/templates/Controller.java.vm");
+		templates.add("gen/templates/list.html.vm");
+		templates.add("gen/templates/list.js.vm");
 		return templates;
 	}
 	
