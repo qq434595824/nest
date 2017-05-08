@@ -2,9 +2,9 @@
 spring:
     datasource:
         driver-class-name: com.mysql.jdbc.Driver
-        url: jdbc:mysql://localhost:3303/test1?useUnicode=true&characterEncoding=utf8
-        username: root
-        password: 123456
+        url: jdbc:mysql://www.zteiot.cn:3306/ziyan?useUnicode=true&characterEncoding=utf8
+        username: ziyan
+        password: 87678540
         initialSize: 5
         minIdle: 5
         maxActive: 10

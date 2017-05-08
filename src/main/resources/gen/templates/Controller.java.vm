@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import ${package}.entity.${className}Entity;
 import ${package}.service.${className}Service;
-import com.zmy.utils.PageUtils;
-import com.zmy.utils.R;
+import ${package}.utils.PageUtils;
+import ${package}.utils.R;
 
 
 /**
@@ -47,8 +47,8 @@ public class ${className}Controller {
 	@GetMapping("/list")
 	@RequiresPermissions("${pathName}:list")
 	@ApiOperation(value="获取列表信息", notes="根据提交的页数跟每页的数据限制数")
-	public R list(Integer page, Integer limit){
-		Map<String, Object> map = new HashMap<>();
+	public ResponseEntity<PageUtils> list(Integer page, Integer limit){
+		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("offset", (page - 1) * limit);
 		map.put("limit", limit);
 		
@@ -58,7 +58,7 @@ public class ${className}Controller {
 		
 		PageUtils pageUtil = new PageUtils(${classname}List, total, limit, page);
 		
-		return R.ok().put("page", pageUtil);
+		return ResponseEntity.ok(pageUtil);
 	}
 	
 	
@@ -69,10 +69,10 @@ public class ${className}Controller {
 	@GetMapping("/info/{${pk.attrname}}")
 	@RequiresPermissions("${pathName}:info")
 	@ApiOperation(value="获取单个记录信息")
-	public R info(@PathVariable("${pk.attrname}") ${pk.attrType} ${pk.attrname}){
+	public ResponseEntity<${className}Entity> info(@PathVariable("${pk.attrname}") ${pk.attrType} ${pk.attrname}){
 		${className}Entity ${classname} = ${classname}Service.queryObject(${pk.attrname});
-		
-		return R.ok().put("${classname}", ${classname});
+
+        return ResponseEntity.ok(${classname});
 	}
 	
 	/**
@@ -82,10 +82,10 @@ public class ${className}Controller {
 	@PostMapping("/save")
 	@RequiresPermissions("${pathName}:save")
 	@ApiOperation(value="保存单个记录信息")
-	public R save(@RequestBody ${className}Entity ${classname}){
+	public ResponseEntity<Void> save(@RequestBody ${className}Entity ${classname}){
 		${classname}Service.save(${classname});
-		
-		return R.ok();
+
+        return ResponseEntity.ok(null);
 	}
 	
 	/**
@@ -95,10 +95,10 @@ public class ${className}Controller {
 	@PostMapping("/update")
 	@RequiresPermissions("${pathName}:update")
 	@ApiOperation(value="更新单个记录信息")
-	public R update(@RequestBody ${className}Entity ${classname}){
+	public ResponseEntity<Void> update(@RequestBody ${className}Entity ${classname}){
 		${classname}Service.update(${classname});
-		
-		return R.ok();
+
+        return ResponseEntity.ok(null);
 	}
 	
 	/**
@@ -108,10 +108,10 @@ public class ${className}Controller {
 	@DeleteMapping("/delete")
 	@RequiresPermissions("${pathName}:delete")
 	@ApiOperation(value="删除单个记录信息")
-	public R delete(@RequestBody ${pk.attrType}[] ${pk.attrname}s){
+	public ResponseEntity<Void> delete(@RequestBody ${pk.attrType}[] ${pk.attrname}s){
 		${classname}Service.deleteBatch(${pk.attrname}s);
-		
-		return R.ok();
+
+        return ResponseEntity.ok(null);
 	}
 	
 }

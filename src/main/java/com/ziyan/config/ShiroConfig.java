@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * Shiro配置
  */
-@Configuration
+//@Configuration
 public class ShiroConfig {
     /**
      * ShiroFilterFactoryBean 处理拦截资源文件问题。
