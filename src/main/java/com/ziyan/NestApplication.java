@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ImportResource;
 
 
-//@ImportResource("classpath*:/spring-shiro.xml")
+@ImportResource("classpath*:/spring-shiro.xml")
 @EnableAutoConfiguration
 @SpringBootApplication
 public class NestApplication {
