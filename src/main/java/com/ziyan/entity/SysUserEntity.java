@@ -10,7 +10,7 @@ import java.util.Date;
  * 
  * @author ziyan
  * @email 434595824@qq.com
- * @date 2017-05-08 18:59:25
+ * @date 2017-05-09 11:04:36
  */
 public class SysUserEntity implements Serializable {
 	private static final long serialVersionUID = 1L;

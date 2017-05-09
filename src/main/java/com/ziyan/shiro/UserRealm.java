@@ -1,23 +1,34 @@
-//package com.ziyan.shiro;
-//
-//import org.apache.commons.lang.StringUtils;
-//import org.apache.shiro.authc.*;
-//import org.apache.shiro.authz.AuthorizationInfo;
-//import org.apache.shiro.authz.SimpleAuthorizationInfo;
-//import org.apache.shiro.realm.AuthorizingRealm;
-//import org.apache.shiro.subject.PrincipalCollection;
-//import org.springframework.beans.factory.annotation.Autowired;
-//
-//import java.util.*;
-//
-///**
-// * 认证
-// */
-//public class UserRealm extends AuthorizingRealm {
+package com.ziyan.shiro;
+
+import org.apache.commons.lang.StringUtils;
+import org.apache.shiro.authc.*;
+import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
+import org.apache.shiro.realm.AuthorizingRealm;
+import org.apache.shiro.subject.PrincipalCollection;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.util.*;
+
+/**
+ * 认证
+ */
+@Component
+public class UserRealm extends AuthorizingRealm {
+	@Override
+	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
+		return null;
+	}
+
+	@Override
+	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
+		return null;
+	}
 //    @Autowired
 //    private SysUserService sysUserService;
 //    @Autowired
-//    private SysMenuService sysMenuService;
+////    private SysMenuService sysMenuService;
 //
 //    /**
 //     * 授权(验证权限时调用)
@@ -84,5 +95,5 @@
 //        SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(user, password, getName());
 //        return info;
 //	}
-//
-//}
+
+}

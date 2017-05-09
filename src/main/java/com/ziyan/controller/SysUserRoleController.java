@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ziyan.entity.SysUserEntity;
-import com.ziyan.service.SysUserService;
+import com.ziyan.entity.SysUserRoleEntity;
+import com.ziyan.service.SysUserRoleService;
 import com.ziyan.utils.PageUtils;
 
 
@@ -30,14 +30,14 @@ import com.ziyan.utils.PageUtils;
  * @date 2017-05-09 11:04:36
  */
 @Controller
-@RequestMapping("sysuser")
-public class SysUserController {
+@RequestMapping("sysuserrole")
+public class SysUserRoleController {
 	@Autowired
-	private SysUserService sysUserService;
+	private SysUserRoleService sysUserRoleService;
 	
-	@GetMapping("/sysuser.html")
+	@GetMapping("/sysuserrole.html")
 	public String list(){
-		return "sysuser/sysuser.html";
+		return "sysuserrole/sysuserrole.html";
 	}
 	
 	/**
@@ -45,7 +45,7 @@ public class SysUserController {
 	 */
 	@ResponseBody
 	@GetMapping("/list")
-	@RequiresPermissions("sysuser:list")
+	@RequiresPermissions("sysuserrole:list")
 	@ApiOperation(value="获取列表信息", notes="根据提交的页数跟每页的数据限制数")
 	public ResponseEntity<PageUtils> list(Integer page, Integer limit){
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -53,10 +53,10 @@ public class SysUserController {
 		map.put("limit", limit);
 		
 		//查询列表数据
-		List<SysUserEntity> sysUserList = sysUserService.queryList(map);
-		int total = sysUserService.queryTotal(map);
+		List<SysUserRoleEntity> sysUserRoleList = sysUserRoleService.queryList(map);
+		int total = sysUserRoleService.queryTotal(map);
 		
-		PageUtils pageUtil = new PageUtils(sysUserList, total, limit, page);
+		PageUtils pageUtil = new PageUtils(sysUserRoleList, total, limit, page);
 		
 		return ResponseEntity.ok(pageUtil);
 	}
@@ -67,12 +67,12 @@ public class SysUserController {
 	 */
 	@ResponseBody
 	@GetMapping("/info/{id}")
-	@RequiresPermissions("sysuser:info")
+	@RequiresPermissions("sysuserrole:info")
 	@ApiOperation(value="获取单个记录信息")
-	public ResponseEntity<SysUserEntity> info(@PathVariable("id") Integer id){
-		SysUserEntity sysUser = sysUserService.queryObject(id);
+	public ResponseEntity<SysUserRoleEntity> info(@PathVariable("id") Integer id){
+		SysUserRoleEntity sysUserRole = sysUserRoleService.queryObject(id);
 
-        return ResponseEntity.ok(sysUser);
+        return ResponseEntity.ok(sysUserRole);
 	}
 	
 	/**
@@ -80,10 +80,10 @@ public class SysUserController {
 	 */
 	@ResponseBody
 	@PostMapping("/save")
-	@RequiresPermissions("sysuser:save")
+	@RequiresPermissions("sysuserrole:save")
 	@ApiOperation(value="保存单个记录信息")
-	public ResponseEntity<Void> save(@RequestBody SysUserEntity sysUser){
-		sysUserService.save(sysUser);
+	public ResponseEntity<Void> save(@RequestBody SysUserRoleEntity sysUserRole){
+		sysUserRoleService.save(sysUserRole);
 
         return ResponseEntity.ok(null);
 	}
@@ -93,10 +93,10 @@ public class SysUserController {
 	 */
 	@ResponseBody
 	@PostMapping("/update")
-	@RequiresPermissions("sysuser:update")
+	@RequiresPermissions("sysuserrole:update")
 	@ApiOperation(value="更新单个记录信息")
-	public ResponseEntity<Void> update(@RequestBody SysUserEntity sysUser){
-		sysUserService.update(sysUser);
+	public ResponseEntity<Void> update(@RequestBody SysUserRoleEntity sysUserRole){
+		sysUserRoleService.update(sysUserRole);
 
         return ResponseEntity.ok(null);
 	}
@@ -106,10 +106,10 @@ public class SysUserController {
 	 */
 	@ResponseBody
 	@DeleteMapping("/delete")
-	@RequiresPermissions("sysuser:delete")
+	@RequiresPermissions("sysuserrole:delete")
 	@ApiOperation(value="删除单个记录信息")
 	public ResponseEntity<Void> delete(@RequestBody Integer[] ids){
-		sysUserService.deleteBatch(ids);
+		sysUserRoleService.deleteBatch(ids);
 
         return ResponseEntity.ok(null);
 	}

@@ -1,6 +1,6 @@
 package com.ziyan.dao;
 
-import com.ziyan.entity.SysUserEntity;
+import com.ziyan.entity.SysRoleEntity;
 
 /**
  * 
@@ -9,6 +9,6 @@ import com.ziyan.entity.SysUserEntity;
  * @email 434595824@qq.com
  * @date 2017-05-09 11:04:36
  */
-public interface SysUserDao extends BaseDao<SysUserEntity> {
+public interface SysRoleDao extends BaseDao<SysRoleEntity> {
 	
 }

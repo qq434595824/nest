@@ -1,6 +1,6 @@
 package com.ziyan.service;
 
-import com.ziyan.entity.SysUserEntity;
+import com.ziyan.entity.SysRoleEntity;
 
 import java.util.List;
 import java.util.Map;
@@ -12,17 +12,17 @@ import java.util.Map;
  * @email 434595824@qq.com
  * @date 2017-05-09 11:04:36
  */
-public interface SysUserService {
+public interface SysRoleService {
 	
-	SysUserEntity queryObject(Integer id);
+	SysRoleEntity queryObject(Integer id);
 	
-	List<SysUserEntity> queryList(Map<String, Object> map);
+	List<SysRoleEntity> queryList(Map<String, Object> map);
 	
 	int queryTotal(Map<String, Object> map);
 	
-	void save(SysUserEntity sysUser);
+	void save(SysRoleEntity sysRole);
 	
-	void update(SysUserEntity sysUser);
+	void update(SysRoleEntity sysRole);
 	
 	void delete(Integer id);
 	
