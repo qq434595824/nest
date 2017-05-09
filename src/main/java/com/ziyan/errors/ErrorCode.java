@@ -12,7 +12,7 @@ public enum ErrorCode {
     get_configure_file_faile(5, "获取配置文件失败"),
     merge_template_faile(6, "渲染模板失败"),
     locked_user(7, "账号已被锁定,请联系管理员"),
-    ;
+    captha_error(8, "验证码不正确");
 
     private ErrorCode(int code, String message) {
         this.code = code + offset;
