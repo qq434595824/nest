@@ -9,13 +9,7 @@ import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import com.ziyan.entity.SysPermissionsEntity;
 import com.ziyan.service.SysPermissionsService;
@@ -47,17 +41,24 @@ public class SysPermissionsController {
 	@GetMapping("/list")
 	@RequiresPermissions("syspermissions:list")
 	@ApiOperation(value="获取列表信息", notes="根据提交的页数跟每页的数据限制数")
-	public ResponseEntity<PageUtils> list(Integer page, Integer limit){
+	public ResponseEntity<PageUtils> list(@RequestParam(required = false) Integer page,
+										  @RequestParam(required = false) Integer limit){
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("offset", (page - 1) * limit);
-		map.put("limit", limit);
-		
+		if (page != null && limit != null) {
+			map.put("offset", (page - 1) * limit);
+			map.put("limit", limit);
+		}
+
 		//查询列表数据
 		List<SysPermissionsEntity> sysPermissionsList = sysPermissionsService.queryList(map);
 		int total = sysPermissionsService.queryTotal(map);
-		
+		if (page == null || limit == null) {
+			limit = 1;
+			page = total;
+		}
+
 		PageUtils pageUtil = new PageUtils(sysPermissionsList, total, limit, page);
-		
+
 		return ResponseEntity.ok(pageUtil);
 	}
 	

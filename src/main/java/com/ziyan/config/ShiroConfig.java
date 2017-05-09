@@ -5,12 +5,14 @@ import java.util.Map;
 
 import com.ziyan.shiro.UserRealm;
 import com.ziyan.utils.SpringContextUtils;
+import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * Shiro配置
@@ -22,11 +24,11 @@ public class ShiroConfig {
     private static Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
     // Shiro缓存
     //    @Bean(name = "shiroEhcacheManager")
-//    public EhCacheManager getEhCacheManager() {
-//        EhCacheManager em = new EhCacheManager();
-//        em.setCacheManagerConfigFile("classpath:ehcache-shiro.xml");
-//        return em;
-//    }
+    public EhCacheManager getEhCacheManager() {
+        EhCacheManager em = new EhCacheManager();
+        em.setCacheManagerConfigFile("classpath:ehcache-shiro.xml");
+        return em;
+    }
 
     @Bean(name = "lifecycleBeanPostProcessor")
     public LifecycleBeanPostProcessor getLifecycleBeanPostProcessor() {

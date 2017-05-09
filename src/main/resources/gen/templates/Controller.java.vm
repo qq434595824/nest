@@ -47,15 +47,21 @@ public class ${className}Controller {
 	@GetMapping("/list")
 	@RequiresPermissions("${pathName}:list")
 	@ApiOperation(value="获取列表信息", notes="根据提交的页数跟每页的数据限制数")
-	public ResponseEntity<PageUtils> list(Integer page, Integer limit){
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("offset", (page - 1) * limit);
-		map.put("limit", limit);
-		
+	public ResponseEntity<PageUtils> list(@RequestParam(required = false) Integer page,
+										  @RequestParam(required = false) Integer limit){
+        Map<String, Object> map = new HashMap<String, Object>();
+        if (page != null && limit != null) {
+            map.put("offset", (page - 1) * limit);
+            map.put("limit", limit);
+        }
 		//查询列表数据
 		List<${className}Entity> ${classname}List = ${classname}Service.queryList(map);
 		int total = ${classname}Service.queryTotal(map);
-		
+        if (page == null || limit == null) {
+            limit = 1;
+            page = total;
+        }
+
 		PageUtils pageUtil = new PageUtils(${classname}List, total, limit, page);
 		
 		return ResponseEntity.ok(pageUtil);
