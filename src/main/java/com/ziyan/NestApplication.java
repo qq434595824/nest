@@ -8,7 +8,6 @@ import org.springframework.context.annotation.ImportResource;
 
 
 //@ImportResource("classpath*:/spring-shiro.xml")
-@MapperScan("com.ziyan.dao")
 @EnableAutoConfiguration
 @SpringBootApplication
 public class NestApplication {

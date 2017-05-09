@@ -51,5 +51,10 @@ public class SysUserServiceImpl implements SysUserService {
 	public void deleteBatch(Integer[] ids){
 		sysUserDao.deleteBatch(ids);
 	}
-	
+
+	@Override
+	public SysUserEntity findByUserName(String username) {
+		return sysUserDao.findByUserName(username);
+	}
+
 }

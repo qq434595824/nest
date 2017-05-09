@@ -27,4 +27,6 @@ public interface SysUserService {
 	void delete(Integer id);
 	
 	void deleteBatch(Integer[] ids);
+
+    SysUserEntity findByUserName(String username);
 }
