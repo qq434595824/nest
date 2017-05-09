@@ -35,7 +35,7 @@ public class ${className}Controller {
 	@Autowired
 	private ${className}Service ${classname}Service;
 	
-	@RequestMapping("/${pathName}.html")
+	@GetMapping("/${pathName}.html")
 	public String list(){
 		return "${pathName}/${pathName}.html";
 	}

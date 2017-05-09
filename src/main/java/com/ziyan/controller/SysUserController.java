@@ -35,7 +35,7 @@ public class SysUserController {
 	@Autowired
 	private SysUserService sysUserService;
 	
-	@RequestMapping("/sysuser.html")
+	@GetMapping("/sysuser.html")
 	public String list(){
 		return "sysuser/sysuser.html";
 	}
