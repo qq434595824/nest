@@ -31,7 +31,7 @@ public class SysUserController {
 	
 	@GetMapping("/sysuser.html")
 	public String list(){
-		return "sysuser/sysuser.html";
+		return "html/sysuser.html";
 	}
 	
 	/**

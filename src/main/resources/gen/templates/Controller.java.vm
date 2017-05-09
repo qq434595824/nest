@@ -37,7 +37,7 @@ public class ${className}Controller {
 	
 	@GetMapping("/${pathName}.html")
 	public String list(){
-		return "${pathName}/${pathName}.html";
+		return "html/${pathName}.html";
 	}
 	
 	/**

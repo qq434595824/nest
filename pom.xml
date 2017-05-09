@@ -37,6 +37,7 @@
         <swagger.version>2.2.2</swagger.version>
         <shiro.version>1.3.2</shiro.version>
         <kaptcha.version>0.0.9</kaptcha.version>
+        <freemarker.version>2.3.23</freemarker.version>
     </properties>
 
 
@@ -60,10 +61,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!-- thymeleaf模板引擎 -->
+        <!-- Freemarker视图所需jar -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>${freemarker.version}</version>
         </dependency>
         <!-- Spring Boot Mybatis 依赖 -->
         <dependency>

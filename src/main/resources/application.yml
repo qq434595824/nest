@@ -23,6 +23,23 @@ spring:
             max-idle: 8
             min-idle: 0
 
+    ##FREEMARKER (FreeMarkerAutoConfiguration)
+    freemarker:
+        allow-request-override: false
+        cache: true
+        check-template-location: true
+        charset: UTF-8
+        content-type: text/html
+        expose-request-attributes: false
+        expose-session-attributes: false
+        expose-spring-macro-helpers: false
+        suffix:
+    #prefix:
+    #request-context-attribute:
+    #settings.*:
+    #template-loader-path: classpath:/templates/ #comma-separated list
+    #view-names:  # whitelist of view names that can be resolved
+
 # Mybatis 配置
 mybatis:
     typeAliasesPackage: com.ziyan.domain

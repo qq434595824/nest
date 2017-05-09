@@ -29,7 +29,7 @@ public class SysUserRoleController {
 
     @GetMapping("/sysuserrole.html")
     public String list() {
-        return "sysuserrole/sysuserrole.html";
+        return "html/sysuserrole.html";
     }
 
     /**

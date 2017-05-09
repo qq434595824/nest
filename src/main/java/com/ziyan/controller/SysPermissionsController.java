@@ -29,9 +29,9 @@ public class SysPermissionsController {
 	@Autowired
 	private SysPermissionsService sysPermissionsService;
 	
-	@GetMapping("/html/syspermissions.html")
+	@GetMapping("/syspermissions.html")
 	public String list(){
-		return "syspermissions/syspermissions.html";
+		return "html/syspermissions.html";
 	}
 	
 	/**

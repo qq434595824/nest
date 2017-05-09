@@ -31,7 +31,7 @@ public class SysPermissionsRoleController {
 	
 	@GetMapping("/syspermissionsrole.html")
 	public String list(){
-		return "syspermissionsrole/syspermissionsrole.html";
+		return "html/syspermissionsrole.html";
 	}
 	
 	/**
