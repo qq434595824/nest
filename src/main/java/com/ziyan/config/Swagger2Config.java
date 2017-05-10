@@ -24,8 +24,8 @@ public class Swagger2Config {
 
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder()
-				.title("SSM Demo Project")
-				.description("test Swagger and code generator")
+				.title("子炎的小狗窝")
+				.description("API接口")
 				.termsOfServiceUrl("")
 				.contact("434595824@qq.com")
 				.version("1.0")
