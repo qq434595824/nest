@@ -1,10 +1,16 @@
-# 数据源配置
+server:
+    port: 8080
+
 spring:
+    application:
+        name: nest
+
+    # 数据源配置
     datasource:
         driver-class-name: com.mysql.jdbc.Driver
-        url: jdbc:mysql://www.zteiot.cn:3306/ziyan?useUnicode=true&characterEncoding=utf8
-        username: ziyan
-        password: 87678540
+        url: jdbc:mysql://127.0.0.1:3306/ziyan?useUnicode=true&characterEncoding=utf8
+        username: root
+        password: 123456
         initialSize: 5
         minIdle: 5
         maxActive: 10
