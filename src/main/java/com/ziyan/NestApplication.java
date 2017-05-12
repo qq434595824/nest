@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.core.env.Environment;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -16,6 +17,7 @@ import java.net.UnknownHostException;
 @ImportResource("classpath*:/spring-shiro.xml")
 @EnableAutoConfiguration
 @SpringBootApplication
+@EnableWebMvc
 public class NestApplication {
 	private static final Logger log = LoggerFactory.getLogger(NestApplication.class);
 
