@@ -13,13 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class ViewController {
 
-    @GetMapping("/{app}/js/{file}.js")
+    @GetMapping("static/{app}/js/{file}.js")
     public String getJs(@PathVariable String app, @PathVariable String file, HttpServletResponse response) {
         response.setContentType("text/js");
         return "static/" + app + "/js/" + file + ".js";
     }
 
-    @GetMapping("/{app}/css/{file}.css")
+    @GetMapping("static/{app}/css/{file}.css")
     public String getCss(@PathVariable String app, @PathVariable String file, HttpServletResponse response) {
         response.setContentType("text/css");
         return "static/" + app + "/css/" + file + ".css";
@@ -30,8 +30,13 @@ public class ViewController {
         return "templates/" + app + "/" + view + ".html";
     }
 
-    @GetMapping("/{view}.html")
-    public String getView(@PathVariable String view) {
-        return "templates/" + view + ".html";
+    @GetMapping("/header.html")
+    public String getHead() {
+        return "templates/header.html";
+    }
+
+    @GetMapping("/menu.html")
+    public String getMenu() {
+        return "templates/menu.html";
     }
 }
