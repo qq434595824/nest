@@ -17,5 +17,4 @@ public class ViewController {
     public String getMenu() {
         return "menu";
     }
-
 }
