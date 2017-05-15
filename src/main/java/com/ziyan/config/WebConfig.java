@@ -13,6 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @ComponentScan
 public class WebConfig extends WebMvcConfigurerAdapter {
 
+    // 设置首页
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("forward:/demo.html");
@@ -20,9 +21,12 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         super.addViewControllers(registry);
     }
 
+    /**
+     * 设置资源路径
+     * @param registry
+     */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/**").addResourceLocations("/");
+        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
     }
-
 }
