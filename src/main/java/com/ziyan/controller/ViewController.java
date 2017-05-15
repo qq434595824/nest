@@ -2,14 +2,10 @@ package com.ziyan.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * Created by 子炎 on 2017/5/12.
  */
-
 @Controller
 public class ViewController {
     @GetMapping("/header.html")
@@ -21,4 +17,5 @@ public class ViewController {
     public String getMenu() {
         return "menu";
     }
+
 }
