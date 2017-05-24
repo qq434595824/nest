@@ -17,7 +17,6 @@ import java.net.UnknownHostException;
 //@ImportResource("classpath*:/spring-shiro.xml")
 @EnableAutoConfiguration
 @SpringBootApplication
-@EnableWebMvc
 public class NestApplication {
 	private static final Logger log = LoggerFactory.getLogger(NestApplication.class);
 
