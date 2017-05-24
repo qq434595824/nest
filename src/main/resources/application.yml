@@ -15,19 +15,6 @@ spring:
         minIdle: 5
         maxActive: 10
         maxWait: 60000
-    ## Redis 配置
-    redis:
-        database: 0
-        host: 127.0.0.1
-        port: 6379
-        password:
-        timeout: 0
-
-        pool:
-            max-active: 8
-            max-wait: -1
-            max-idle: 8
-            min-idle: 0
 
     thymeleaf:
             mode: LEGACYHTML5
@@ -36,3 +23,13 @@ spring:
 mybatis:
     typeAliasesPackage: com.ziyan.domain
     mapperLocations: classpath:com.ziyan.dao/*.xml
+# Redis 配置
+redis:
+    host: localhost
+    port: 6379
+    password:
+    pool:
+        max-idle: 10
+        min-idle: 0
+        max-active: 16
+        max-wait: -1

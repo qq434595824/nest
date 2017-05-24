@@ -14,7 +14,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 
-@ImportResource("classpath*:/spring-shiro.xml")
+//@ImportResource("classpath*:/spring-shiro.xml")
 @EnableAutoConfiguration
 @SpringBootApplication
 @EnableWebMvc
